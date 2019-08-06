@@ -1,4 +1,4 @@
-install.packages("caTools")  # install external package
+#install.packages("caTools")  # install external package
 library(caTools)             # external package providing write.gif function
 jet.colors <- colorRampPalette(c("red", "blue", "#007FFF", "cyan", "#7FFF7F",
                                  "yellow", "#FF7F00", "red", "#7F0000"))
