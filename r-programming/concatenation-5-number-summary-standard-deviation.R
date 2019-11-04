@@ -6,3 +6,4 @@ summary(data) # five number summary
 
 mean(data)    # arithmetic mean
 sd(data)      # sample standard deviation
+
