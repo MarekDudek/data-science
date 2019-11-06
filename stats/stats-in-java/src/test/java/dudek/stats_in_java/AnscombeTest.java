@@ -67,5 +67,10 @@ final class AnscombeTest {
         final double correlation = Stats.sampleCorrelationCoefficient(xs, ys);
         // then
         assertThat(correlation).isCloseTo(0.816, withPercentage(100 * 0.001 / 0.816));
+        // when
+        final Stats.LinearRegressionParameters parameters = Stats.simpleLinearRegression(xs, ys);
+        // then
+        assertThat(parameters.alpha).isCloseTo(3.0, withPercentage(100 * 0.01 / 3.0));
+        assertThat(parameters.beta).isCloseTo(0.5, withPercentage(100 * 0.001 / 0.5));
     }
 }
