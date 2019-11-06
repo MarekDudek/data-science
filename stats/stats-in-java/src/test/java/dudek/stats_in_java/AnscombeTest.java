@@ -63,5 +63,9 @@ final class AnscombeTest {
         final double sampleVarianceOfY = Stats.sampleVariance(ys);
         // then
         assertThat(sampleVarianceOfY).isCloseTo(4.125, withPercentage(100 * 0.003 / 4.125));
+        // when
+        final double correlation = Stats.sampleCorrelationCoefficient(xs, ys);
+        // then
+        assertThat(correlation).isCloseTo(0.816, withPercentage(100 * 0.001 / 0.816));
     }
 }
