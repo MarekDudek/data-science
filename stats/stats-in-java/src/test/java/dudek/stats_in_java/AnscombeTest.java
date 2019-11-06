@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 import static dudek.stats_in_java.Anscombe.*;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.data.Percentage.withPercentage;
 
 final class AnscombeTest {
 
@@ -41,12 +42,26 @@ final class AnscombeTest {
 
     @ParameterizedTest
     @MethodSource("anscombeTestCases")
-    void mean(final AnscombeTestCase tc) {
+    void properties(final AnscombeTestCase tc) {
         // given
         final List<Double> xs = tc.sequence.stream().map(p -> p.x).collect(toList());
         // when
-        final double mean = Stats.mean(xs);
+        final double meanOfX = Stats.mean(xs);
         // then
-        assertThat(mean).isEqualTo(9.0);
+        assertThat(meanOfX).isEqualTo(9.0);
+        // when
+        final double sampleVarianceOfX = Stats.sampleVariance(xs);
+        // then
+        assertThat(sampleVarianceOfX).isEqualTo(11.0);
+        // given
+        final List<Double> ys = tc.sequence.stream().map(p -> p.y).collect(toList());
+        // when
+        final double meanOfY = Stats.mean(ys);
+        // then
+        assertThat(meanOfY).isCloseTo(7.50, withPercentage(0.01 * 7.50));
+        // when
+        final double sampleVarianceOfY = Stats.sampleVariance(ys);
+        // then
+        assertThat(sampleVarianceOfY).isCloseTo(4.125, withPercentage(100 * 0.003 / 4.125));
     }
 }
