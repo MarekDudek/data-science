@@ -9,19 +9,34 @@ import java.util.List;
 import static com.google.common.collect.Streams.zip;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
+import static java.util.stream.Collectors.toList;
 
 public enum Stats {
 
     ;
 
-    public static double mean(final List<Double> xs) {
+    private static double expectedValue(final List<Double> xs) {
         final double sum = xs.stream().reduce(0.0, Double::sum);
         final int count = xs.size();
         return sum / count;
     }
 
+    public static double mean(final List<Double> xs) {
+        return expectedValue(xs);
+    }
+
+    public static double variance(final List<Double> xs) {
+        final List<Double> squares = xs.stream().map(x -> pow(x, 2)).collect(toList());
+        final double meanOfSquare = expectedValue(squares);
+        final double mean = mean(xs);
+        final double squareOfMean = pow(mean, 2);
+        return meanOfSquare - squareOfMean;
+    }
+
     public static double sampleVariance(final List<Double> xs) {
         final double mean = mean(xs);
+        final List<Double> squares = xs.stream().map(x -> pow(x - mean, 2)).collect(toList());
+
         final Double sum = xs.stream().map(x -> pow(x - mean, 2)).reduce(0.0, Double::sum);
         final int count = xs.size();
         return sum / (count - 1);
