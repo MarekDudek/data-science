@@ -2,11 +2,11 @@ package dudek.stats_in_java;
 
 import org.junit.jupiter.api.Test;
 
-import static dudek.stats_in_java.Probability.probability;
+import static dudek.stats_in_java.OldProbability.probability;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-final class ProbabilityTest {
+final class OldProbabilityTest {
 
     @Test
     void proper_values() {

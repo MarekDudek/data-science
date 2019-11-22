@@ -2,13 +2,17 @@ package dudek.stats_in_java.unit_interval;
 
 import com.google.common.annotations.VisibleForTesting;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 import java.util.Optional;
 
-@RequiredArgsConstructor
-@AllArgsConstructor
+import static lombok.AccessLevel.PRIVATE;
+
+@RequiredArgsConstructor(access = PRIVATE)
+@AllArgsConstructor(access = PRIVATE)
+@EqualsAndHashCode
 @ToString
 public final class ImmutableFloatUnitInterval implements UnitInterval {
 
@@ -17,13 +21,18 @@ public final class ImmutableFloatUnitInterval implements UnitInterval {
     public float value;
 
     @VisibleForTesting
-    static Optional<ImmutableFloatUnitInterval> fromFloat(final float value) {
+    static UnitInterval fromUnit(final float value) {
+        return fromAny(value).orElseThrow(RuntimeException::new);
+    }
+
+    @VisibleForTesting
+    static Optional<UnitInterval> fromAny(final float value) {
         if (value < 0)
             return Optional.empty();
         if (value > 1) {
             return Optional.empty();
         }
-        final ImmutableFloatUnitInterval interval = new ImmutableFloatUnitInterval(value);
+        final UnitInterval interval = new ImmutableFloatUnitInterval(value);
         return Optional.of(interval);
     }
 }
