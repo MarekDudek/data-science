@@ -28,9 +28,11 @@ final class UnitsTest {
         assertThat(underflow.left().value()).isEqualTo(UNDERFLOW);
     }
 
+    private static final float EPSILON = 0.000_000_1f;
+
     @Test
     void overflow() {
-        final Either<UnitError, Unit> overflow = fromAny(1 + ImmutableFloatUnit.EPSILON);
+        final Either<UnitError, Unit> overflow = fromAny(1 + EPSILON);
         assertThat(overflow.left().value()).isEqualTo(OVERFLOW);
     }
 }

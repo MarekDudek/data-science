@@ -16,8 +16,6 @@ import static lombok.AccessLevel.PRIVATE;
 @ToString
 final class ImmutableFloatUnit implements Unit {
 
-    static final float EPSILON = 0.000_000_1f;
-
     public final float value;
 
     static Unit fromUnit(final float value) {
@@ -30,7 +28,7 @@ final class ImmutableFloatUnit implements Unit {
         if (value > 1) {
             return left(OVERFLOW);
         }
-        final Unit interval = new ImmutableFloatUnit(value);
-        return right(interval);
+        final Unit unit = new ImmutableFloatUnit(value);
+        return right(unit);
     }
 }
