@@ -14,7 +14,7 @@ import static lombok.AccessLevel.PRIVATE;
 @AllArgsConstructor(access = PRIVATE)
 @EqualsAndHashCode
 @ToString
-public final class ImmutableFloatUnitInterval implements UnitInterval {
+final class ImmutableFloatUnitInterval implements UnitInterval {
 
     static final float EPSILON = 0.000_000_1f;
 

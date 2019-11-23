@@ -1,7 +1,7 @@
-package dudek.stats_in_java.probabilities;
+package dudek.stats_in_java.pds;
 
 import dudek.stats_in_java.probability.ProbabilityDistribution;
-import dudek.stats_in_java.random_variables.CoinToss;
+import dudek.stats_in_java.toys.CoinToss;
 import dudek.stats_in_java.unit_interval.UnitInterval;
 import lombok.NonNull;
 

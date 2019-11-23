@@ -1,4 +1,4 @@
-package dudek.stats_in_java.random_variables;
+package dudek.stats_in_java.toys;
 
 public enum Dice {
 
