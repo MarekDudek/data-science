@@ -1,8 +1,8 @@
 package dudek.stats_in_java.probability;
 
-import dudek.stats_in_java.unit_interval.UnitInterval;
+import dudek.stats_in_java.unit_interval.Unit;
 
 public interface ProbabilityDistribution<OUTCOME> {
 
-    UnitInterval probability(OUTCOME outcome);
+    Unit probability(OUTCOME outcome);
 }

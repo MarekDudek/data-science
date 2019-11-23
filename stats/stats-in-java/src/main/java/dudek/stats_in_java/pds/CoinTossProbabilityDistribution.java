@@ -2,10 +2,10 @@ package dudek.stats_in_java.pds;
 
 import dudek.stats_in_java.probability.ProbabilityDistribution;
 import dudek.stats_in_java.toys.CoinToss;
-import dudek.stats_in_java.unit_interval.UnitInterval;
+import dudek.stats_in_java.unit_interval.Unit;
 import lombok.NonNull;
 
-import static dudek.stats_in_java.unit_interval.UnitIntervals.HALF;
+import static dudek.stats_in_java.unit_interval.Units.HALF;
 
 public final class CoinTossProbabilityDistribution implements ProbabilityDistribution<CoinToss> {
 
@@ -14,7 +14,7 @@ public final class CoinTossProbabilityDistribution implements ProbabilityDistrib
     }
 
     @Override
-    public UnitInterval probability(final @NonNull CoinToss coinToss) {
+    public Unit probability(final @NonNull CoinToss coinToss) {
         return HALF;
     }
 }
