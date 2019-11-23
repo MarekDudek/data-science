@@ -69,4 +69,17 @@ final class ProbabilitiesTest {
         // then
         assertThat(pd.probability(color)).isEqualTo(QUARTER);
     }
+
+    @ParameterizedTest
+    @EnumSource(CoinToss.class)
+    void comparisons(final CoinToss toss) {
+        // given
+        final ProbabilityDistribution<CoinToss> pd1 = coinToss();
+        final ProbabilityDistribution<CoinToss> pd2 = fromEnum(CoinToss.class);
+        // when
+        final Unit p1 = pd1.probability(toss);
+        final Unit p2 = pd2.probability(toss);
+        // then
+        assertThat(p1).isEqualTo(p2);
+    }
 }
