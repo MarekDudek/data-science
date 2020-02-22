@@ -1,6 +1,10 @@
 # Installing/upgrading pip and virtualenv
 
 ```
+sudo apt-get install python3-pip
+sudo apt-get install python3-venv
+```
+```
 python3 -m pip --version
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user virtualenv
