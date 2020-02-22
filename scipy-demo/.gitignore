@@ -1,3 +1,5 @@
 /scipy-demo.iml
 /.idea/
 __pycache__
+/data/nyse_daily.h5
+/.ipynb_checkpoints/
